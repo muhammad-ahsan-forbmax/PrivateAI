@@ -1,0 +1,15 @@
+Django
+pydevd_pycharm
+psycopg2-binary>=2.9
+django-storages[boto3]
+pgvector
+djangorestframework
+rest_framework_simplejwt
+djangorestframework_simplejwt
+django-eventstream
+
+redis
+openai
+dotenv
+langchain
+langchain-openai
