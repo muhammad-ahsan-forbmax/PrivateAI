@@ -5,7 +5,7 @@ from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
 
 User = get_user_model()
 
-from .models import Chat
+from chat.models import Chat
 
 
 def get_user_from_token(token_string):

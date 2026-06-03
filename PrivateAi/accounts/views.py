@@ -1,4 +1,3 @@
-# from django.conf import settings
 from rest_framework import status
 from django.db.transaction import atomic
 from django.db.utils import IntegrityError
@@ -6,9 +5,8 @@ from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 from rest_framework.generics import CreateAPIView, GenericAPIView
 
-from .utils import get_otp, redis_client
-from .serializers import RegisterSerializer, NewPasswordSerializer, ForgetPasswordSerializer
-
+from accounts.utils import get_otp, redis_client
+from accounts.serializers import RegisterSerializer, NewPasswordSerializer, ForgetPasswordSerializer
 
 User = get_user_model()
 
@@ -41,6 +39,7 @@ class RegisterView(CreateAPIView):
 
         return Response(data={'message': 'User created'}, status=status.HTTP_201_CREATED)
 
+
 class ForgetPassword(GenericAPIView):
     serializer_class = ForgetPasswordSerializer
 
@@ -68,6 +67,7 @@ class ForgetPassword(GenericAPIView):
         print(otp)
 
         return Response(data={'message': 'otp sent for password reset'}, status=status.HTTP_200_OK)
+
 
 class NewPasswordView(CreateAPIView):
     serializer_class = NewPasswordSerializer
